@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<HEAD>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Finance Tracker</TITLE>
+    <link rel=stylesheet href=style.css>
+    <script src=https://cdn.jsdelivr.net/npm/chart.js></script>
+</head>
+
+<body>
+    <div class=container>
+
+        <h1>💰 Finance Tracker</h1>
+
+        <div class=summary>
+            <div class="card balance">
+                <h3>Balance</h3>
+                <p id=balance>$0</p>
+            </div>
+            <div class="card income">
+                <h3>Income</h3>
+                <p id=income>$0</p>
+            </div>
+            <div class="card expense">
+                <h3>Expense</h3>
+                <p id=expense>$0</p>
+            </div>
+        </div>
+
+        <form id=transactionForm>
+            <div class=form-group>
+                <label>Amount:</label>
+                <input type=number id=amount step=0.01 required>
+            </div>
+            <div class=form-group>
+                <label>Description:</label>
+                <input type=text id=description required>
+            </div>
+            <div class=form-group>
+                <label>Category:</label>
+                <select id=category>
+                    <option>Food</option>
+                    <option>Housing</option>
+                    <option>Transport</option>
+                </select>
+            </div>
+            <div class=form-group>
+                <label>Date:</label>
+                <input type=date id=date required>
+            </div>
+            <div class=form-group>
+                <label><input type=radio name=type value=income required> Income</label>
+                <label><input type=radio name=type value=expense required> Expense</label>
+            </div>
+            <button type=submit>Add Transaction</button>
+        </form>
+
+        <div class=transactions>
+            <h2>History</h2>
+            <div class=filter>
+                <button class=active data-filter=all>All</button>
+                <button data-filter=income>Income</button>
+                <button data-filter=expense>Expenses</button>
+            </div>
+            <ul id=transactionList></ul>
+        </div>
+
+        <div class=chart-container>
+            <canvas id=myChart></canvas>
+        </div>
+    </div>
+
+    <script src=app.js></script>
+</body>
+
+</html>
